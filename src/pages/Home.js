@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -6,7 +6,6 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Container, CssBaseline, Hidden } from "@material-ui/core";
-import { createMuiTheme } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -25,11 +24,6 @@ import Discord from "../assets/discord.png";
 import ThaparImg from "../assets/ThaparUniversity_1.jpg";
 import Footer from "../components/Footer";
 import styles from "./styles/home.module.css";
-import { ThemeProvider, createGlobalStyle } from "styled-components";
-import styled from "styled-components";
-import storage from "local-storage-fallback";
-import style from "styled-theming";
-import useTheme from "../useTheme";
 import ToggleButton from "../ToggleButton";
 import { StyledPaper } from "./Theme";
 import Layout from "./Layout";
@@ -153,32 +147,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const getBackground = style("mode", {
-  light: "#fafafa",
-  dark: "#111",
-});
-const getForeground = style("mode", {
-  light: "#5A5A5A",
-  dark: "#EEE",
-});
-
-const GlobalStyle = createGlobalStyle`
-body{ 
-  background-color: ${getBackground};
-  color: ${getForeground};
-}
-`;
-
 const Home = (props) => {
   const classes = useStyles();
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const theme = useTheme();
-  // const StyledPaper = styled(Paper)`
-  //   background-color: ${getBackground};
-  // `;
   return (
     <Layout>
       <Fragment>
